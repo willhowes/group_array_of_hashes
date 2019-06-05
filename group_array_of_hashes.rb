@@ -7,18 +7,17 @@ players = [
 sorted_by_sport = Hash.new
 names_array = Array.new
 
-players.each do |hash_in_array|
-  if sorted_by_sport.include?(hash_in_array[:sport])
+players.each do |player_under_consideration|
+  if sorted_by_sport.include?(player_under_consideration[:sport])
     # add the name to the array
-    names_array.push(hash_in_array[:name])
+    names_array.push(player_under_consideration[:name])
     # add the previous name that plays this sport to array
-    names_array.push(sorted_by_sport[hash_in_array[:sport]])
+    names_array.push(sorted_by_sport[player_under_consideration[:sport]])
     # add names_array to sorted_by_sport Hash
-    sorted_by_sport[hash_in_array[:sport]] = names_array
+    sorted_by_sport[player_under_consideration[:sport]] = names_array
   else
-    sorted_by_sport[hash_in_array[:sport]] = hash_in_array[:name]
+    sorted_by_sport[player_under_consideration[:sport]] = player_under_consideration[:name]
   end
 
 end
-puts names_array
 puts sorted_by_sport
